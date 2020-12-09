@@ -1,5 +1,7 @@
 package com.sudoku.model;
 
+import java.util.ArrayList;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Board {
 
-	private int[][] board = new int[9][9];
+	private ArrayList<ArrayList<Integer>> board = new ArrayList<ArrayList<Integer>>();
 }
