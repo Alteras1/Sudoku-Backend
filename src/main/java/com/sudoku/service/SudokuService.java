@@ -12,7 +12,7 @@ import com.sudoku.model.Board;
 @Service
 public class SudokuService {
 
-	private static final Set<Integer> CHECKER = new TreeSet<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+	private static final Set<Integer> CHECKER = new TreeSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
 
 	/**
 	 * Checks if board is a valid Sudoku board
@@ -33,7 +33,6 @@ public class SudokuService {
 			ArrayList<Integer> temp = new ArrayList<Integer>();
 			for (int y = 0; y < 9; y++)
 				temp.add(board.getBoard().get(y).get(x));
-			System.out.println(temp);
 			if (!(validArray(temp)))
 				return false;
 		}
@@ -69,7 +68,7 @@ public class SudokuService {
 	}
 
 	/**
-	 * Checks an array is a valid array of non-repeating 1-9 elements
+	 * Checks an array is a valid array of non-repeating 1-9 elements or empty
 	 * 
 	 * @param arrayList<Integer>
 	 * @return Boolean
@@ -77,8 +76,8 @@ public class SudokuService {
 	boolean validArray(ArrayList<Integer> arrayList) {
 		Set<Integer> temp = new TreeSet<Integer>();
 		for (int i : arrayList)
-			if (!(temp.add(i)))
+			if (!(temp.add(i) && CHECKER.contains(i)))
 				return false;
-		return CHECKER.equals(temp);
+		return true;
 	}
 }

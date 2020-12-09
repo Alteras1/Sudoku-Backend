@@ -17,7 +17,7 @@ public class SudokuController {
 	
 	@PostMapping
 	public boolean validation(@RequestBody Board requestBoard) {
-		System.out.println(requestBoard);
+		requestBoard.getBoard().forEach(System.out::println);
 		
 		return ss.validate(requestBoard);
 	}
