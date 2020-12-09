@@ -75,9 +75,12 @@ public class SudokuService {
 	 */
 	boolean validArray(ArrayList<Integer> arrayList) {
 		Set<Integer> temp = new TreeSet<Integer>();
-		for (int i : arrayList)
+		for (int i : arrayList) {
+			if (i == 0)
+				continue;
 			if (!(temp.add(i) && CHECKER.contains(i)))
 				return false;
+		}
 		return true;
 	}
 }
